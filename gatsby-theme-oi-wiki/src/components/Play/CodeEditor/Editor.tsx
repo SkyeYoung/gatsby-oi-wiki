@@ -17,11 +17,11 @@ export interface EditorProps extends Omit<IAceEditorProps, 'mode'> {
 
 const Editor: React.FC<EditorProps> = (props) => {
   const { lang, ...aceProps } = props
-  const themeMode = useThemeMode()
+  const [theme] = useThemeMode()
 
   return (
     <Ace
-      theme={themeMode === 'dark' ? 'tomorrow_night' : 'chrome'}
+      theme={theme === 'dark' ? 'tomorrow_night' : 'chrome'}
       mode={lang ? langModeMap[lang] : 'text'}
       width=""
       height=""

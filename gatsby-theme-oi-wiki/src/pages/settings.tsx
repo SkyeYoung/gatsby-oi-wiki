@@ -7,9 +7,13 @@ import Radio from '@mui/material/Radio'
 import RadioGroup from '@mui/material/RadioGroup'
 import Switch from '@mui/material/Switch'
 import { FormControl, FormLabel } from '@mui/material'
+import useThemeMode from '../hooks/useThemeMode'
+import { ThemeMode } from '../types/ThemeMode'
 
 const title = '设置页'
 const SettingsPage: FC = () => {
+  const [theme, setTheme] = useThemeMode()
+
   return (
     <Layout title={title} withNav={false} withToc={false}>
       <Title noEdit={true} relativePath="">{title}</Title>
@@ -17,11 +21,11 @@ const SettingsPage: FC = () => {
       <Grid container={true} direction="column" spacing={2}>
         <Grid item={true}>
           <FormControl>
-            <FormLabel>暗色模式</FormLabel>
-            <RadioGroup name="theme-mode">
-              <FormControlLabel control={<Radio/>} label="跟随系统" value="user-preference"/>
-              <FormControlLabel control={<Radio/>} label="总是打开" value="always-on"/>
-              <FormControlLabel control={<Radio/>} label="总是关闭" value="always-off"/>
+            <FormLabel>模式</FormLabel>
+            <RadioGroup name="theme-mode" onChange={(_, v) => setTheme(v as ThemeMode)} value={theme}>
+              <FormControlLabel control={<Radio/>} label="Light" value="light"/>
+              <FormControlLabel control={<Radio/>} label="System" value="user-preference"/>
+              <FormControlLabel control={<Radio/>} label="Dark" value="dark"/>
             </RadioGroup>
           </FormControl>
         </Grid>
