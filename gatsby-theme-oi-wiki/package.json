@@ -20,7 +20,7 @@
     "@mgtd/vssue-api-github-v4": "^2.4.5",
     "ace-builds": "^1.4.12",
     "autosuggest-highlight": "^3.1.1",
-    "axios": "^0.21.1",
+    "axios": "^1.2.0",
     "classnames": "^2.2.6",
     "clsx": "^1.1.1",
     "constate": "^3.3.0",
